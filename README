@@ -1,5 +1,4 @@
 SYNOPSIS
-
 Deepin Scrot with the ability to save your snapshots directly to Dropbox. It works like this:
   - Take a snapshot the usual way.
   - Select "Save to Dropbox" instead of the old "Save" button.
@@ -8,12 +7,12 @@ Deepin Scrot with the ability to save your snapshots directly to Dropbox. It wor
 
 
 INSTALLING
+Run setup-ubuntu.sh or setup-opensuse.sh with root privileges. Then change the values at the bottom of the
+constant.py file to match your Dropbox configuration.
 
-Run setup-ubuntu.sh or setup-opensuse.sh with root privileges.
 
 RUNNING
-
-Go to the src folder and run
+Go to the src folder and run:
 
 python deepinScrot.py
 
