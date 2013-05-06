@@ -19,3 +19,6 @@ python deepinScrot.py
 or
 
 ./deepinScrot.py
+
+TODO
+Change the "Save to Dropbox" icon to show the Dropbox logo instead of a floppy disk.
