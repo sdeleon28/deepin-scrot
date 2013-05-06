@@ -48,3 +48,10 @@ SCROT_MODE_WINDOW = 2
 
 DEFAULT_FILENAME = "DeepinScrot-"
 DEFAULT_FONT = "文泉驿微米黑"
+
+# BEGIN Dropbox config
+DROPBOX_SCREENSHOTS_FOLDER = '/path/to/Dropbox/Public/screenshots/'  # Change this!
+DROPBOX_PUBLIC_ID = 'XXXXXXYYYYYYZZZZZ'  # Change this!
+DROPBOX_SCREENSHOTS_URL = 'http://dl.dropbox.com/u/%s/screenshots/' % DROPBOX_PUBLIC_ID
+CLIPBOARD_NOTIFICATION_SOUND = '/usr/share/sounds/gnome/default/alerts/drip.ogg'
+# END Dropbox config

@@ -24,8 +24,10 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
+import uuid
 
 from action import *
+import pyperclip
 from utils import *
 from math import *
 from draw import *
@@ -427,6 +429,9 @@ class MainScrot:
         
         self.actionSaveButton = self.createOtherButton("save", __("Tip save"))
         self.actionSaveButton.connect("button-press-event", lambda w, e: self.saveSnapshotToFile())
+        
+        self.actionSaveButton = self.createOtherButton("dropbox", "Save to Dropbox!")
+        self.actionSaveButton.connect("button-press-event", lambda w, e: self.saveSnapshotToFile(True))
         
         separatorLabel = gtk.Button()
         drawSeparator(separatorLabel, 'sep')
@@ -1010,8 +1015,25 @@ class MainScrot:
         if self.keyBindings.has_key(keyEventName):
             self.keyBindings[keyEventName]()
 
-    def saveSnapshotToFile(self):
+    def play_sound(self, path):
+        command = 'play %s' % path
+        os.system(command)
+
+    def copy_to_clipboard(self, filename):
+        url = os.path.join(DROPBOX_SCREENSHOTS_URL, filename)
+        pyperclip.setcb(url)
+        self.play_sound(CLIPBOARD_NOTIFICATION_SOUND)
+
+    def saveSnapshotToFile(self, to_dropbox=False):
         '''Save file to file.'''
+        if to_dropbox:
+            filename = '%s.png' % str(uuid.uuid1())
+            path = os.path.join(DROPBOX_SCREENSHOTS_FOLDER, filename)
+            self.saveSnapshot(path, self.saveFiletype)
+            print "Save snapshot to %s" % path
+            self.copy_to_clipboard(filename)
+            return
+        
         dialog = gtk.FileChooserDialog(
             "Save..",
             self.window,
@@ -1061,9 +1083,9 @@ class MainScrot:
             
         response = dialog.run()
         if response == gtk.RESPONSE_ACCEPT:
-            filename = dialog.get_filename()
-            self.saveSnapshot(filename, self.saveFiletype)
-            print "Save snapshot to %s" % (filename)
+            path = dialog.get_filename()
+            self.saveSnapshot(path, self.saveFiletype)
+            print "Save snapshot to %s" % path
         elif response == gtk.RESPONSE_REJECT:
             self.adjustToolbar()
             self.showToolbar()
