@@ -1,9 +1,22 @@
-Snapshot tools for linux deepin.
+SYNOPSIS
 
-* First generate mo files.
-  Swith `deepin-scrot` directory to execute updateTranslate.sh like below:
-      ./updateTranslate.sh
+Deepin Scrot with the ability to save your snapshots directly to Dropbox. It works like this:
+  - Take a snapshot the usual way.
+  - Select "Save to Dropbox" instead of the old "Save" button.
+  - The program saves the snapshot to your public Dropbox folder, generates the public URL for it, puts it into your
+  clipboard and plays a sound as feedback.
 
-* Quick start:
-  Switch `src` directory to execute deepinScrot.py like below command:
-      cd ./src && ./deepinScrot.py
+
+INSTALLING
+
+Run setup-ubuntu.sh or setup-opensuse.sh with root privileges.
+
+RUNNING
+
+Go to the src folder and run
+
+python deepinScrot.py
+
+or
+
+./deepinScrot.py
