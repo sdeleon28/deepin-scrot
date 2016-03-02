@@ -1,6 +1,9 @@
-*.pyc
-.#*
+# Weird aliases from the original source
 repos.sh
+
+# Translations (I think)
 *.mo
-.gitignore
-locale/
+/locale/
+
+# Python compiled
+*.pyc
