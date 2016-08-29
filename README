@@ -1,3 +1,6 @@
+Fork of deepin-scrot that automatically uploads crops to Dropbox. I made this for myself, so it's not really easy to
+use or highly configurable, but feel free to make it reusable.
+
 SYNOPSIS
 Deepin Scrot with the ability to save your snapshots directly to Dropbox. It works like this:
   - Take a snapshot the usual way.
